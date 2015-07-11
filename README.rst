@@ -33,3 +33,12 @@ The returned object is a ``collections.OrderedDict`` with authentication scheme
 names as keys. The values are either dictionaries, a single string, or ``None``
 if there are no parameters.
 
+Installation
+------------
+
+This package is in PyPI. Install with::
+
+   $ pip install www-authenticate
+
+There are no external dependencies.
+
