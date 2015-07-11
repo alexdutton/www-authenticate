@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='www_authenticate',
+    name='www-authenticate',
     version='0.9',
     description='Parser for WWW-Authenticate headers.',
     long_description=open('README.rst').read(),
