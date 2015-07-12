@@ -31,7 +31,7 @@ class CaseFoldedOrderedDict(OrderedDict):
     def pop(self, key, default=None):
         return super().pop(_casefold(key), default)
 
-def group_pairs(tokens):
+def _group_pairs(tokens):
     i = 0
     while i < len(tokens) - 2:
         if tokens[i][0] == 'token' and \
@@ -40,7 +40,7 @@ def group_pairs(tokens):
             tokens[i:i+3] = [('pair', (tokens[i][1], tokens[i+2][1]))]
         i += 1
 
-def group_challenges(tokens):
+def _group_challenges(tokens):
     challenges = []
     while tokens:
         #print('  ', tokens)
@@ -69,10 +69,10 @@ def parse(value):
                 if token_name:
                     tokens.append((token_name, match.group(1)))
                 break
-    group_pairs(tokens)
+    _group_pairs(tokens)
 
     challenges = CaseFoldedOrderedDict()
-    for name, tokens in group_challenges(tokens):
+    for name, tokens in _group_challenges(tokens):
         args, kwargs = [], {}
         for token_name, value in tokens:
             if token_name == 'token':
