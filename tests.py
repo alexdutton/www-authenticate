@@ -17,15 +17,15 @@ values = [
 
 challenges = (
     ('Negotiate',
-     ('Negotiate', None)),
+     ('negotiate', None)),
     ('Negotiate abcdef',
-     ('Negotiate', 'abcdef')),
+     ('negotiate', 'abcdef')),
     ('Bearer realm=example.com',
-     ('Bearer', {'realm': 'example.com'})),
+     ('bearer', {'realm': 'example.com'})),
     ('Bearer realm="example.com"',
-     ('Bearer', {'realm': 'example.com'})),
+     ('bearer', {'realm': 'example.com'})),
     ('Digest realm="example.com", qop="auth,auth-int", nonce="abcdef", opaque="ghijkl"',
-     ('Digest', {'realm': 'example.com', 'qop': 'auth,auth-int', 'nonce': 'abcdef', 'opaque': 'ghijkl'})),
+     ('digest', {'realm': 'example.com', 'qop': 'auth,auth-int', 'nonce': 'abcdef', 'opaque': 'ghijkl'})),
 )
 
 
