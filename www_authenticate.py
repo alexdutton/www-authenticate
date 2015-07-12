@@ -9,6 +9,28 @@ _tokens = (
     ('comma', re.compile(r'^(,)')),
 )
 
+def _casefold(value):
+    try:
+        return value.casefold()
+    except AttributeError:
+        return value.lower()
+
+class CaseFoldedOrderedDict(OrderedDict):
+    def __getitem__(self, key):
+        return super().__getitem__(_casefold(key))
+
+    def __setitem__(self, key, value):
+        super().__setitem__(_casefold(key), value)
+
+    def __contains__(self, key):
+        return super().__contains__(_casefold(key))
+
+    def get(self, key, default=None):
+        return super().get(_casefold(key), default)
+
+    def pop(self, key, default=None):
+        return super().pop(_casefold(key), default)
+
 def group_pairs(tokens):
     i = 0
     while i < len(tokens) - 2:
@@ -49,7 +71,7 @@ def parse(value):
                 break
     group_pairs(tokens)
 
-    challenges = OrderedDict()
+    challenges = CaseFoldedOrderedDict()
     for name, tokens in group_challenges(tokens):
         args, kwargs = [], {}
         for token_name, value in tokens:
