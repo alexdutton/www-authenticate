@@ -62,13 +62,19 @@ def _group_challenges(tokens):
 def parse(value):
     tokens = []
     while value:
+        has_match = False
         for token_name, pattern in _tokens:
             match = pattern.match(value)
             if match:
+                has_match = True
                 value = value[match.end():]
                 if token_name:
                     tokens.append((token_name, match.group(1)))
                 break
+
+        if not has_match:
+            break
+
     _group_pairs(tokens)
 
     challenges = CaseFoldedOrderedDict()
