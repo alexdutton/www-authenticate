@@ -43,3 +43,7 @@ class ParseTestCase(unittest.TestCase):
                     self.assertEqual(left[1][0], right)
                     self.assertEqual(left[1][1], parsed[right])
 
+    def testMalformed(self):
+        rv = www_authenticate.parse("malformed: out")
+
+        self.assertEqual({"malformed": None}, dict(rv.items()))
