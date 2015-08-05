@@ -43,7 +43,6 @@ def _group_pairs(tokens):
 def _group_challenges(tokens):
     challenges = []
     while tokens:
-        #print('  ', tokens)
         j = 1
         if len(tokens) == 1:
             pass
