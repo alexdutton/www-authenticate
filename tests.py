@@ -3,18 +3,6 @@ import unittest
 
 import www_authenticate
 
-values = [
-    'Negotiate, Bearer realm="example.com", Basic realm="example.com"',
-    'Bearer realm="example.com", Negotiate, Basic realm="example.com"',
-    'Negotiate, Bearer realm="example.com"',
-    'Negotiate',
-    'Bearer realm="example.com"',
-    'Negotiate abcdef',
-    'Digest realm="testrealm@host.com", qop="auth,auth-int", nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093", opaque="5ccc069c403ebaf9f0171e9517f40e41"',
-    'Digest realm="testrealm@host.com", qop="auth,auth-int", nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093", opaque="5ccc069c403ebaf9f0171e9517f40e41", Negotiate',
-    'Digest realm="testrealm@host.com", qop="auth,auth-int", nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093", opaque="5ccc069c403ebaf9f0171e9517f40e41", Bearer realm="example.com"',
-]
-
 challenges = (
     ('Negotiate',
      ('negotiate', None)),
