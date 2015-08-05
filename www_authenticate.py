@@ -68,6 +68,8 @@ def parse(value):
                 if token_name:
                     tokens.append((token_name, match.group(1)))
                 break
+        else:
+             raise ValueError("Failed to parse value")
     _group_pairs(tokens)
 
     challenges = CaseFoldedOrderedDict()
