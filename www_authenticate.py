@@ -2,7 +2,7 @@ from collections import OrderedDict
 import re
 
 _tokens = (
-    ('token', re.compile(r'''^([!#$%&'*+\-.^_`|~\w]+)''')),
+    ('token', re.compile(r'''^([!#$%&'*+\-.^_`|~\w/]+(?:={1,2}$)?)''')),
     ('token', re.compile(r'''^"((?:[^"\\]|\\\\|\\")+)"''')),
     (None, re.compile(r'^\s+')),
     ('equals', re.compile(r'^(=)')),
